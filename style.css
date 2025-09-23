@@ -1,0 +1,104 @@
+/* General Page Layout */
+body {
+  font-family: Arial, sans-serif;
+  background: #ffe0f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  width: 900px;
+}
+
+/* Main Form */
+.registerForm {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  gap: 20px;
+}
+
+/* Split into two columns */
+.registerForm > div:first-of-type {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+/* Columns */
+.form-left, 
+.form-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Vertical Divider */
+.form-divider {
+  width: 2px;
+  background: #000; /* black */
+  margin: 0 15px;
+  border-radius: 2px;
+}
+
+/* Headings */
+form h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Horizontal Divider (if you want to use <hr>) */
+hr.divider {
+  border: none;
+  border-top: 2px solid #000000;
+  margin: 20px 0;
+  width: 100%;
+}
+
+/* Inputs & Selects */
+input, select, button {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+/* Buttons */
+button {
+  background: #28a745;
+  color: white;
+  cursor: pointer;
+  border: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #218838;
+}
+
+/* Form Actions */
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+  gap: 5px;
+}
+
+/* Success / Error Message */
+.message {
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #fef3c7;
+  border: 1px solid #facc15;
+  border-radius: 5px;
+  text-align: center;
+}
