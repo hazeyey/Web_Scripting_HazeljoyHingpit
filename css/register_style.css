@@ -11,7 +11,7 @@ body {
 .container {
   display: flex;
   width: 85%;
-  height: 85vh;
+  height: 95vh;
 }
 
 .welcome {
@@ -23,15 +23,12 @@ body {
   padding: 60px;
 }
 
-.welcome h1 {
-  font-size: 50px;
-  margin-bottom: 10px;
+.welcome-img {
+  max-width: 450px;
+  margin-bottom: 20px;
 }
 
-.welcome p {
-  max-width: 400px;
-  line-height: 1.5;
-}
+
 
 .form-card {
   flex: 1;
@@ -57,8 +54,8 @@ form {
 
 .options {
   display: flex;
-  gap: 20px;      /* space between each option */
-  flex-wrap: wrap; /* let them wrap if screen is small */
+  gap: 20px;     
+  flex-wrap: wrap;
 }
 
 .options label {
@@ -66,15 +63,22 @@ form {
   align-items: center;
   font-size: 14px;
   color: #555;
-  gap: 6px;       /* space between radio/checkbox and text */
+  gap: 6px;       
 }
 
 
-input, select, button {
-  padding: 12px;
+input, button {
+   padding: 12px;
   border-radius: 5px;
   border: 1px solid #ccc;
 }
+
+select {
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;   
+  font-size: 14px;}
 
 label {
   font-size: 13px;
@@ -95,7 +99,6 @@ label {
   letter-spacing: 0.5px;
 }
 
-/* Placeholders remain readable */
 input::placeholder, select {
   color: #999;
   font-size: 14px;
@@ -108,11 +111,11 @@ button {
   font-weight: bold;
   cursor: pointer;
   border: none;
-  padding: 12px 30px;   /* controls button size */
+  padding: 12px 30px;   
   border-radius: 5px;
   display: block;
-  margin: 20px auto 0;  /* auto left/right = centered */
-  width: auto;          
+  margin: 30px auto 0;  
+  width: 100%;          
 }
 
 button:hover {
@@ -120,12 +123,16 @@ button:hover {
 }
 
 .message {
+  position: fixed;
+  top: 20px;         /* distance from top */
+  left: 50%;
+  transform: translateX(-50%);
   background: #ffe0f6;
-  padding: 10px;
+  padding: 10px 20px;
   border: 1px solid #ffb6e6;
   border-radius: 5px;
-  margin-bottom: 20px;
   text-align: center;
+  z-index: 999;      /* stays above form */
 }
 
 .switch {

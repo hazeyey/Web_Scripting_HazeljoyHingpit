@@ -11,7 +11,7 @@ body {
 .container {
   display: flex;
   width: 85%;
-  height: 60vh;
+  height: 40vh;
 }
 
 .welcome {
@@ -23,15 +23,12 @@ body {
   padding: 60px;
 }
 
-.welcome h1 {
-  font-size: 50px;
-  margin-bottom: 10px;
+
+.welcome-img {
+  max-width: 450px;
+  margin-bottom: 20px;
 }
 
-.welcome p {
-  max-width: 400px;
-  line-height: 1.5;
-}
 
 .form-card {
   flex: 1;
@@ -117,12 +114,16 @@ button:hover {
 }
 
 .message {
+  position: fixed;
+  top: 20px;         /* distance from top */
+  left: 50%;
+  transform: translateX(-50%);
   background: #ffe0f6;
-  padding: 10px;
+  padding: 10px 20px;
   border: 1px solid #ffb6e6;
   border-radius: 5px;
-  margin-bottom: 20px;
   text-align: center;
+  z-index: 999;      /* stays above form */
 }
 
 .switch {

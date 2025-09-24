@@ -36,6 +36,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+<script>
+  // Wait 3 seconds then remove the message
+  setTimeout(function() {
+    let msg = document.getElementById("popupMessage");
+    if (msg) {
+      msg.style.transition = "opacity 0.5s"; // smooth fade
+      msg.style.opacity = "0";               // fade out
+
+      setTimeout(() => msg.remove(), 500);   // remove from DOM after fade
+    }
+  }, 3000); // 3000ms = 3 seconds
+</script>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -47,17 +60,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <div class="container">
 
-    <!-- Left side -->
+   
     <div class="welcome">
-      <h1>WELCOME</h1>
-      <h3>Join us today!</h3>
-      <p>Create your account and start your journey with us.</p>
+      <img src="taoo.png" alt="Welcome Illustration" class="welcome-img">
     </div>
 
-    <!-- Right side -->
+    
     <div class="form-card">
       <?php if ($message): ?>
-        <div class="message"><?= $message ?></div>
+        <div class="message" id="popupMessage"><?= $message ?></div>
       <?php endif; ?>
 
       <h2>Register</h2>
@@ -71,26 +82,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-sections">
 
 
-        <!-- Gender -->
-<div class="form-group">
-  <label class="section-title">Gender</label>
-  <div class="options">
-    <label><input type="radio" name="gender" value="Male"> Male</label>
-    <label><input type="radio" name="gender" value="Female"> Female</label>
-  </div>
-</div>
+              <!-- Gender -->
+      <div class="form-group">
+        <label class="section-title">Gender</label>
+        <div class="options">
+          <label><input type="radio" name="gender" value="Male"> Male</label>
+          <label><input type="radio" name="gender" value="Female"> Female</label>
+        </div>
+      </div>
 
-<!-- Hobbies -->
-<div class="form-group">
-  <label class="section-title">Hobbies</label>
-  <div class="options">
-    <label><input type="checkbox" name="hobby" value="Reading"> Reading</label>
-    <label><input type="checkbox" name="hobby" value="Sports"> Sports</label>
-    <label><input type="checkbox" name="hobby" value="Music"> Music</label>
-    <label><input type="checkbox" name="hobby" value="Traveling"> Traveling</label>
-  </div>
-</div>
-
+      <!-- Hobbies -->
+      <div class="form-group">
+        <label class="section-title">Hobbies</label>
+        <div class="options">
+          <label><input type="checkbox" name="hobby" value="Reading"> Reading</label>
+          <label><input type="checkbox" name="hobby" value="Sports"> Sports</label>
+          <label><input type="checkbox" name="hobby" value="Music"> Music</label>
+          <label><input type="checkbox" name="hobby" value="Traveling"> Traveling</label>
+        </div>
+      </div>
+      
+      <label class="section-title">Country</label>
+      <select name="country" required>
+        <option value="">--Select Country--</option>
+        <option>Philippines</option>
+        <option>USA</option>
+        <option>UK</option>
+      </select>
 
 
         <button type="submit">Register</button>
