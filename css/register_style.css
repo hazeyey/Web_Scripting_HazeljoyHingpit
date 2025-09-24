@@ -28,8 +28,6 @@ body {
   margin-bottom: 20px;
 }
 
-
-
 .form-card {
   flex: 1;
   background: #fff;
@@ -66,7 +64,6 @@ form {
   gap: 6px;       
 }
 
-
 input, button {
    padding: 12px;
   border-radius: 5px;
@@ -87,7 +84,6 @@ label {
   display: inline-block;
 }
 
-/* Section titles */
 .section-title {
   font-size: 16px;
   font-weight: bold;
@@ -103,7 +99,6 @@ input::placeholder, select {
   color: #999;
   font-size: 14px;
 }
-
 
 button {
   background: #ff6fcf;
@@ -124,7 +119,7 @@ button:hover {
 
 .message {
   position: fixed;
-  top: 20px;         /* distance from top */
+  top: 20px;         
   left: 50%;
   transform: translateX(-50%);
   background: #ffe0f6;
@@ -132,7 +127,7 @@ button:hover {
   border: 1px solid #ffb6e6;
   border-radius: 5px;
   text-align: center;
-  z-index: 999;      /* stays above form */
+  z-index: 999;      
 }
 
 .switch {

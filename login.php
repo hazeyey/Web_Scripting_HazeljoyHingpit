@@ -18,17 +18,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <script>
-  // Wait 3 seconds then remove the message
+  // Timer for Pop Up Message
   setTimeout(function() {
     let msg = document.getElementById("popupMessage");
     if (msg) {
-      msg.style.transition = "opacity 0.5s"; // smooth fade
-      msg.style.opacity = "0";               // fade out
+      msg.style.transition = "opacity 0.5s";
+      msg.style.opacity = "0";              
 
-      setTimeout(() => msg.remove(), 500);   // remove from DOM after fade
+      setTimeout(() => msg.remove(), 500);   
     }
-  }, 3000); // 3000ms = 3 seconds
+  }, 3000); 
 </script>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,17 +41,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
   <div class="container">
-
+    
+    <!-- Welcome -->
     <div class="welcome">
       <img src="taoo.png" alt="Welcome Illustration" class="welcome-img">
     </div>
 
-  
+    <!-- Pop Up Message -->
     <div class="form-card">
       <?php if ($message): ?>
         <div class="message" id="popupMessage"><?= $message ?></div>
       <?php endif; ?>
 
+    <!-- Login Form -->
       <h2>Sign In</h2>
       <form method="POST">
         <input type="text" name="username" placeholder="User Name" required>
