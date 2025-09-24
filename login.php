@@ -1,27 +1,19 @@
 <?php
-$file = "users.txt";
 $message = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+    $users = file("users.txt", FILE_IGNORE_NEW_LINES);
+    $found = false;
 
-if (isset($_POST['login'])) {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['password']);
-
-    if (empty($username) || empty($password)) {
-        $message = "Both fields are required!";
-    } elseif (!file_exists($file)) {
-        $message = "No registered users yet!";
-    } else {
-        $users = file($file, FILE_IGNORE_NEW_LINES);
-        $found = false;
-        foreach ($users as $user) {
-            $data = explode("|", $user);
-            if ($data[2] === $username && $data[3] === $password) {
-                $found = true;
-                break;
-            }
+    foreach ($users as $user) {
+        list($fn, $em, $un, $pw) = explode("|", $user);
+        if ($un == $username && $pw == $password) {
+            $found = true;
+            break;
         }
-        $message = $found ? "🎉 Welcome, $username!" : "Invalid username or password!";
     }
+    $message = $found ? "🎉 Welcome back, $username!" : "❌ Invalid login.";
 }
 ?>
 <!DOCTYPE html>
@@ -29,32 +21,33 @@ if (isset($_POST['login'])) {
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css\login_style.css">
 </head>
 <body>
-<div class="container">
-  <?php if (!empty($message)) : ?>
-    <div class="message"><?= $message ?></div>
-  <?php endif; ?>
+  <div class="container">
 
-  <form id="loginForm" method="POST">
-    <h2>Login</h2>
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit" name="login">Login</button>
-    <p>Don’t have an account? <a href="register.php">Register</a></p>
-  </form>
-</div>
+    <!-- Left side -->
+    <div class="welcome">
+      <h1>WELCOME</h1>
+      <h3>Glad to see you again!</h3>
+      <p>Login to continue exploring awesome features with us.</p>
+    </div>
 
-<script>
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-  let user = this.username.value.trim();
-  let pass = this.password.value.trim();
-  if (!user || !pass) {
-    e.preventDefault();
-    alert("Both fields are required!");
-  }
-});
-</script>
+    <!-- Right side -->
+    <div class="form-card">
+      <?php if ($message): ?>
+        <div class="message"><?= $message ?></div>
+      <?php endif; ?>
+
+      <h2>Sign In</h2>
+      <form method="POST">
+        <input type="text" name="username" placeholder="User Name" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Sign In</button>
+      </form>
+
+      <p class="switch">Don’t have an account? <a href="register.php">Register</a></p>
+    </div>
+  </div>
 </body>
 </html>
