@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    <!-- Welcome Message -->
     <div class="welcome">
-      <img src="taoo.png" alt="Welcome Illustration" class="welcome-img">
+      <img src="logo.png" alt="Welcome Illustration" class="welcome-img">
     </div>
 
     
