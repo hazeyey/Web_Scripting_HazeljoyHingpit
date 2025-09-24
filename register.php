@@ -37,14 +37,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <script>
-  // Wait 3 seconds then remove the message
+  // Timer for Pop Up message
   setTimeout(function() {
     let msg = document.getElementById("popupMessage");
     if (msg) {
-      msg.style.transition = "opacity 0.5s"; // smooth fade
-      msg.style.opacity = "0";               // fade out
+      msg.style.transition = "opacity 0.5s"; 
+      msg.style.opacity = "0";              
 
-      setTimeout(() => msg.remove(), 500);   // remove from DOM after fade
+      setTimeout(() => msg.remove(), 500);  
     }
   }, 3000); // 3000ms = 3 seconds
 </script>
@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
   <div class="container">
 
-   
+   <!-- Welcome Message -->
     <div class="welcome">
       <img src="taoo.png" alt="Welcome Illustration" class="welcome-img">
     </div>
@@ -71,6 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="message" id="popupMessage"><?= $message ?></div>
       <?php endif; ?>
 
+    <!-- Register -->
       <h2>Register</h2>
       <form method="POST">
         <input type="text" name="fullname" placeholder="Full Name" required>
@@ -82,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="form-sections">
 
 
-              <!-- Gender -->
+      <!-- Gender -->
       <div class="form-group">
         <label class="section-title">Gender</label>
         <div class="options">
@@ -102,6 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
       </div>
       
+      <!-- Country -->
       <label class="section-title">Country</label>
       <select name="country" required>
         <option value="">--Select Country--</option>
@@ -111,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </select>
 
 
-        <button type="submit">Register</button>
+      <button type="submit">Register</button>
       </form>
 
       <p class="switch">Already have an account? <a href="login.php">Login</a></p>
